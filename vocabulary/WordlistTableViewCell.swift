@@ -16,13 +16,19 @@ class WordlistTableViewCell: UITableViewCell {
     @IBOutlet weak var lang2ImageView: UIImageView!
     @IBOutlet weak var ownerLabel: UILabel!
 
+    var langDict = [
+        "en": #imageLiteral(resourceName: "flag_united_kingdom"),
+        "sv": #imageLiteral(resourceName: "flag_sweden"),
+        "sp": #imageLiteral(resourceName: "flag_spain"),
+        "it": #imageLiteral(resourceName: "flag_italy")
+    ]
 
     func updateUI(wordlist:Wordlist) {
         nameLabel.text = wordlist.name
         wordcountLabel.text = String(wordlist.words.count)
         ownerLabel.text = wordlist.owner
-        //lang1ImageView.image = UIImage(named: wordlist.lang1)
-        //lang2ImageView.image = UIImage(named: wordlist.lang2)
+        lang1ImageView.image = langDict[wordlist.lang1]
+        lang2ImageView.image = langDict[wordlist.lang2]
     }
 
     
